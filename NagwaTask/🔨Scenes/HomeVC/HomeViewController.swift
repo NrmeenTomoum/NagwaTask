@@ -11,79 +11,143 @@
 //
 
 import UIKit
-
+import FCAlertView
 protocol HomeDisplayLogic: class
 {
-  func displaySomething(viewModel: Home.Something.ViewModel)
+    func displayIndecator()
+    func stopIndecator()
+    func createAlert(title: String, subTitle: String)
+    func displayListOfRepositories(viewModel: [Home.Repository.ViewModel])
+    
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic
 {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = HomeInteractor()
-    let presenter = HomePresenter()
-    let router = HomeRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var repositories : [Home.Repository.ViewModel]?
+    var isLoadingMore = false
+    var  indexOfPage = 1
+    var viewLoader = loader ()
+    @IBOutlet weak var tableView: UITableView!
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Home.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Home.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = Constants.ScreenSize.SCREEN_HEIGHT * 0.1
+        tableView.register(UINib(nibName: "ServerTableViewCell", bundle: nil), forCellReuseIdentifier:"ServerTableViewCell" )
+        getRepositories()
+    }
+    
+    // MARK: Do something
+    func getRepositories()
+    {
+        let request = Home.Repository.Request(page: self.indexOfPage ,size : 15)
+        interactor?.getRepositories(request: request)
+    }
+    //@IBOutlet weak var nameTextField: UITextField!
+    
+    func displayListOfRepositories(viewModel: [Home.Repository.ViewModel])
+    {
+        //  isLoadingMore = viewModel.isL
+        if repositories != nil
+        {
+            repositories?.append(contentsOf: viewModel)
+        }
+        else
+        {
+            repositories = viewModel
+        }
+        //        if viewModel.count > 0
+        //        {
+        //            isLoadingMore = viewModel[0].isLoadingMore
+        //        }
+        tableView.reloadData()
+    }
+    func createAlert(title: String, subTitle: String) {
+        CAlert.createAlert(title: title, subTitle: subTitle,vc: self)
+    }
+    
+    func displayIndecator()
+    {
+        viewLoader.startIndecator(self.view)
+    }
+    func stopIndecator()
+    {
+        viewLoader.stopIndecator(self.view)
+    }
+    
+}
+extension HomeViewController : UITableViewDelegate,UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let list = repositories
+        {
+            return  list.count
+        }
+        else
+        {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cindex = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
+        
+        cell.configCell(reposName: repositories![cindex].name, reposDesc: repositories![cindex].description)
+        
+        return cell
+    }
+}
+extension HomeViewController: FCAlertViewDelegate
+{
+    func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
+    }
+    
 }

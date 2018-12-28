@@ -14,28 +14,44 @@ import UIKit
 
 protocol HomeBusinessLogic
 {
-  func doSomething(request: Home.Something.Request)
+    func getRepositories(request: Home.Repository.Request)
 }
 
 protocol HomeDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore
 {
-  var presenter: HomePresentationLogic?
-  var worker: HomeWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Home.Something.Request)
-  {
-    worker = HomeWorker()
-    worker?.doSomeWork()
+    var presenter: HomePresentationLogic?
+    var worker: HomeWorker?
+    //var name: String = ""
+    init() {
+        worker = HomeWorker()
+    }
+    // MARK: Do something
+    func getRepositories(request: Home.Repository.Request)
+    {
+        
+        self.presenter?.presentLoader()
+        
+        worker?.getRepositories( request : request , completionHandler: { (result, errorMessage, serverError) in
+            self.presenter?.presentStopLoader()
+            if let response = result
+            {
+                self.presenter?.presentListOfRepositories(response: response)
+            }
+            else if let error = errorMessage
+            {
+                self.presenter?.presentAlertMessage(message: (errorMessage?.message)!)
+            }
+            else
+            {
+                self.presenter?.presentAlertMessage(message: (serverError?.message)!)
+            }
+        })
+    }
     
-    let response = Home.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    
 }

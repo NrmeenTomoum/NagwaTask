@@ -133,7 +133,7 @@ struct Constants{
     }
     
     struct Server{
-        fileprivate static let hostUrl = " https://api.github.com/users/JeffreyWay/repos?"
+        fileprivate static let hostUrl = "https://api.github.com/users/JeffreyWay/repos?"
         struct Services {
             static let  getRepositories =  hostUrl
         }

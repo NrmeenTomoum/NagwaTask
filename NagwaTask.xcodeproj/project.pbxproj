@@ -27,6 +27,8 @@
 		684C8BC621D6042D00D8A4C2 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BC021D6042D00D8A4C2 /* HomeModels.swift */; };
 		684C8BC721D6042D00D8A4C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */; };
 		684C8BC821D6042D00D8A4C2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */; };
+		68DD773921D652C500DF3B12 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DD773721D652C500DF3B12 /* RepositoryTableViewCell.swift */; };
+		68DD773A21D652C500DF3B12 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68DD773821D652C500DF3B12 /* RepositoryTableViewCell.xib */; };
 		829C8831FC0E08900373A995 /* Pods_NagwaTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2C2CF0211F001A667A4DE8 /* Pods_NagwaTask.framework */; };
 		87970F341D1AED7C6AABC93D /* Pods_NagwaTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DAE1982AA9901104BCD5F62 /* Pods_NagwaTaskUITests.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,8 @@
 		684C8BC021D6042D00D8A4C2 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		68DD773721D652C500DF3B12 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		68DD773821D652C500DF3B12 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		90FD4D0CF0609A203BE19CCB /* Pods-NagwaTaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagwaTaskUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagwaTaskUITests/Pods-NagwaTaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DAE1982AA9901104BCD5F62 /* Pods_NagwaTaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagwaTaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5D45D21FE199894E430A89 /* Pods-NagwaTaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagwaTaskUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NagwaTaskUITests/Pods-NagwaTaskUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				684C8BAF21D6028200D8A4C2 /* HomeVC */,
+				68DD773721D652C500DF3B12 /* RepositoryTableViewCell.swift */,
+				68DD773821D652C500DF3B12 /* RepositoryTableViewCell.xib */,
 			);
 			path = "🔨Scenes";
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				684C8B8A21D6016D00D8A4C2 /* LaunchScreen.storyboard in Resources */,
 				684C8B8721D6016D00D8A4C2 /* Assets.xcassets in Resources */,
 				684C8B8221D6016C00D8A4C2 /* Main.storyboard in Resources */,
+				68DD773A21D652C500DF3B12 /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +495,7 @@
 				684C8BC521D6042D00D8A4C2 /* HomeRouter.swift in Sources */,
 				684C8BBC21D602D600D8A4C2 /* Connection.swift in Sources */,
 				684C8BC821D6042D00D8A4C2 /* HomeInteractor.swift in Sources */,
+				68DD773921D652C500DF3B12 /* RepositoryTableViewCell.swift in Sources */,
 				684C8B7D21D6016C00D8A4C2 /* AppDelegate.swift in Sources */,
 				684C8BC321D6042D00D8A4C2 /* HomePresenter.swift in Sources */,
 				684C8BC721D6042D00D8A4C2 /* HomeViewController.swift in Sources */,

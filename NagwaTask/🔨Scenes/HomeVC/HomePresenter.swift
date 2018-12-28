@@ -14,18 +14,39 @@ import UIKit
 
 protocol HomePresentationLogic
 {
-  func presentSomething(response: Home.Something.Response)
+    func presentStopLoader()
+    func presentLoader()
+    func presentAlertMessage(message : String)
+    func presentListOfRepositories(response: [Home.Repository.Response])
 }
 
 class HomePresenter: HomePresentationLogic
 {
+
   weak var viewController: HomeDisplayLogic?
   
   // MARK: Do something
-  
-  func presentSomething(response: Home.Something.Response)
-  {
-    let viewModel = Home.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    func presentListOfRepositories(response: [Home.Repository.Response])
+    {
+        var list = [Home.Repository.ViewModel]()
+            for item in response
+            {
+                
+                let viewModel = Home.Repository.ViewModel(id: item.id ?? 0, name: item.name ?? "", description: item.description ?? "" , isLoadingMore: true)
+                
+                list.append(viewModel)
+            }
+        viewController?.displayListOfRepositories(viewModel: list)
+    }
+    func presentAlertMessage(message : String)
+    {
+        viewController?.createAlert(title: "", subTitle: message)
+    }
+    func presentStopLoader() {
+        viewController?.stopIndecator()
+    }
+    
+    func presentLoader() {
+        viewController?.displayIndecator()
+    }
 }
