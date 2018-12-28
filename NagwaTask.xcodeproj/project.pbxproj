@@ -8,13 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		684C8B7D21D6016C00D8A4C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B7C21D6016C00D8A4C2 /* AppDelegate.swift */; };
-		684C8B7F21D6016C00D8A4C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B7E21D6016C00D8A4C2 /* ViewController.swift */; };
 		684C8B8221D6016C00D8A4C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684C8B8021D6016C00D8A4C2 /* Main.storyboard */; };
 		684C8B8521D6016C00D8A4C2 /* NagwaTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B8321D6016C00D8A4C2 /* NagwaTask.xcdatamodeld */; };
 		684C8B8721D6016D00D8A4C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 684C8B8621D6016D00D8A4C2 /* Assets.xcassets */; };
 		684C8B8A21D6016D00D8A4C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684C8B8821D6016D00D8A4C2 /* LaunchScreen.storyboard */; };
 		684C8B9521D6016D00D8A4C2 /* NagwaTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B9421D6016D00D8A4C2 /* NagwaTaskTests.swift */; };
 		684C8BA021D6016D00D8A4C2 /* NagwaTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B9F21D6016D00D8A4C2 /* NagwaTaskUITests.swift */; };
+		684C8BB721D602D600D8A4C2 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BB121D602D500D8A4C2 /* GenericModel.swift */; };
+		684C8BB821D602D600D8A4C2 /* GWSManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BB221D602D600D8A4C2 /* GWSManger.swift */; };
+		684C8BB921D602D600D8A4C2 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BB321D602D600D8A4C2 /* Loader.swift */; };
+		684C8BBA21D602D600D8A4C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BB421D602D600D8A4C2 /* Constants.swift */; };
+		684C8BBB21D602D600D8A4C2 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BB521D602D600D8A4C2 /* CustomAlert.swift */; };
+		684C8BBC21D602D600D8A4C2 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BB621D602D600D8A4C2 /* Connection.swift */; };
+		684C8BC321D6042D00D8A4C2 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BBD21D6042D00D8A4C2 /* HomePresenter.swift */; };
+		684C8BC421D6042D00D8A4C2 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BBE21D6042D00D8A4C2 /* HomeWorker.swift */; };
+		684C8BC521D6042D00D8A4C2 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BBF21D6042D00D8A4C2 /* HomeRouter.swift */; };
+		684C8BC621D6042D00D8A4C2 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BC021D6042D00D8A4C2 /* HomeModels.swift */; };
+		684C8BC721D6042D00D8A4C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */; };
+		684C8BC821D6042D00D8A4C2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +48,6 @@
 /* Begin PBXFileReference section */
 		684C8B7921D6016C00D8A4C2 /* NagwaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NagwaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		684C8B7C21D6016C00D8A4C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		684C8B7E21D6016C00D8A4C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		684C8B8121D6016C00D8A4C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		684C8B8421D6016C00D8A4C2 /* NagwaTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NagwaTask.xcdatamodel; sourceTree = "<group>"; };
 		684C8B8621D6016D00D8A4C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +59,18 @@
 		684C8B9B21D6016D00D8A4C2 /* NagwaTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NagwaTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		684C8B9F21D6016D00D8A4C2 /* NagwaTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NagwaTaskUITests.swift; sourceTree = "<group>"; };
 		684C8BA121D6016D00D8A4C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		684C8BB121D602D500D8A4C2 /* GenericModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
+		684C8BB221D602D600D8A4C2 /* GWSManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWSManger.swift; sourceTree = "<group>"; };
+		684C8BB321D602D600D8A4C2 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		684C8BB421D602D600D8A4C2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		684C8BB521D602D600D8A4C2 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		684C8BB621D602D600D8A4C2 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		684C8BBD21D6042D00D8A4C2 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		684C8BBE21D6042D00D8A4C2 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		684C8BBF21D6042D00D8A4C2 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		684C8BC021D6042D00D8A4C2 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +121,11 @@
 		684C8B7B21D6016C00D8A4C2 /* NagwaTask */ = {
 			isa = PBXGroup;
 			children = (
-				684C8B7C21D6016C00D8A4C2 /* AppDelegate.swift */,
-				684C8B7E21D6016C00D8A4C2 /* ViewController.swift */,
-				684C8B8021D6016C00D8A4C2 /* Main.storyboard */,
-				684C8B8621D6016D00D8A4C2 /* Assets.xcassets */,
-				684C8B8821D6016D00D8A4C2 /* LaunchScreen.storyboard */,
+				684C8BCA21D604CE00D8A4C2 /* ⌨️Delegate */,
+				684C8BC921D604A300D8A4C2 /* 🌅Images */,
+				684C8BB021D6029A00D8A4C2 /* 🔧Helper */,
+				684C8BAE21D6027000D8A4C2 /* 🔨Scenes */,
+				684C8BAD21D601D800D8A4C2 /* 🖥Views */,
 				684C8B8B21D6016D00D8A4C2 /* Info.plist */,
 				684C8B8321D6016C00D8A4C2 /* NagwaTask.xcdatamodeld */,
 			);
@@ -126,6 +148,65 @@
 				684C8BA121D6016D00D8A4C2 /* Info.plist */,
 			);
 			path = NagwaTaskUITests;
+			sourceTree = "<group>";
+		};
+		684C8BAD21D601D800D8A4C2 /* 🖥Views */ = {
+			isa = PBXGroup;
+			children = (
+				684C8B8021D6016C00D8A4C2 /* Main.storyboard */,
+				684C8B8821D6016D00D8A4C2 /* LaunchScreen.storyboard */,
+			);
+			path = "🖥Views";
+			sourceTree = "<group>";
+		};
+		684C8BAE21D6027000D8A4C2 /* 🔨Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				684C8BAF21D6028200D8A4C2 /* HomeVC */,
+			);
+			path = "🔨Scenes";
+			sourceTree = "<group>";
+		};
+		684C8BAF21D6028200D8A4C2 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				684C8BBD21D6042D00D8A4C2 /* HomePresenter.swift */,
+				684C8BBE21D6042D00D8A4C2 /* HomeWorker.swift */,
+				684C8BBF21D6042D00D8A4C2 /* HomeRouter.swift */,
+				684C8BC021D6042D00D8A4C2 /* HomeModels.swift */,
+				684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */,
+				684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		684C8BB021D6029A00D8A4C2 /* 🔧Helper */ = {
+			isa = PBXGroup;
+			children = (
+				684C8BB621D602D600D8A4C2 /* Connection.swift */,
+				684C8BB421D602D600D8A4C2 /* Constants.swift */,
+				684C8BB521D602D600D8A4C2 /* CustomAlert.swift */,
+				684C8BB121D602D500D8A4C2 /* GenericModel.swift */,
+				684C8BB221D602D600D8A4C2 /* GWSManger.swift */,
+				684C8BB321D602D600D8A4C2 /* Loader.swift */,
+			);
+			path = "🔧Helper";
+			sourceTree = "<group>";
+		};
+		684C8BC921D604A300D8A4C2 /* 🌅Images */ = {
+			isa = PBXGroup;
+			children = (
+				684C8B8621D6016D00D8A4C2 /* Assets.xcassets */,
+			);
+			path = "🌅Images";
+			sourceTree = "<group>";
+		};
+		684C8BCA21D604CE00D8A4C2 /* ⌨️Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				684C8B7C21D6016C00D8A4C2 /* AppDelegate.swift */,
+			);
+			path = "⌨️Delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +340,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				684C8B7F21D6016C00D8A4C2 /* ViewController.swift in Sources */,
+				684C8BC521D6042D00D8A4C2 /* HomeRouter.swift in Sources */,
+				684C8BBC21D602D600D8A4C2 /* Connection.swift in Sources */,
+				684C8BC821D6042D00D8A4C2 /* HomeInteractor.swift in Sources */,
 				684C8B7D21D6016C00D8A4C2 /* AppDelegate.swift in Sources */,
+				684C8BC321D6042D00D8A4C2 /* HomePresenter.swift in Sources */,
+				684C8BC721D6042D00D8A4C2 /* HomeViewController.swift in Sources */,
+				684C8BC421D6042D00D8A4C2 /* HomeWorker.swift in Sources */,
+				684C8BB921D602D600D8A4C2 /* Loader.swift in Sources */,
 				684C8B8521D6016C00D8A4C2 /* NagwaTask.xcdatamodeld in Sources */,
+				684C8BBA21D602D600D8A4C2 /* Constants.swift in Sources */,
+				684C8BB721D602D600D8A4C2 /* GenericModel.swift in Sources */,
+				684C8BB821D602D600D8A4C2 /* GWSManger.swift in Sources */,
+				684C8BBB21D602D600D8A4C2 /* CustomAlert.swift in Sources */,
+				684C8BC621D6042D00D8A4C2 /* HomeModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
