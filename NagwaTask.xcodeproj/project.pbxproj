@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24BE036ECDD9D086940E1C16 /* Pods_NagwaTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF27450A2AAE542E3061D628 /* Pods_NagwaTaskTests.framework */; };
+		6816F73021D7F84D00D295D3 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816F72E21D7F84D00D295D3 /* LoadingTableViewCell.swift */; };
+		6816F73121D7F84D00D295D3 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6816F72F21D7F84D00D295D3 /* LoadingTableViewCell.xib */; };
 		6834322D21D7633F001491B9 /* HomeWorkerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */; };
 		6834325821D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */; };
 		6834325921D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */; };
@@ -59,6 +61,8 @@
 		28C241E33042798FF2B9836E /* Pods-NagwaTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagwaTaskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagwaTaskTests/Pods-NagwaTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B2C2CF0211F001A667A4DE8 /* Pods_NagwaTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagwaTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633FFC90D7F982AE089BC403 /* Pods-NagwaTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagwaTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagwaTask/Pods-NagwaTask.debug.xcconfig"; sourceTree = "<group>"; };
+		6816F72E21D7F84D00D295D3 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		6816F72F21D7F84D00D295D3 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerCoreData.swift; sourceTree = "<group>"; };
 		6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoriesModel+CoreDataProperties.swift"; path = "/Users/nrmeentomoum/Desktop/NagwaTask/NagwaTask/🔨Scenes/HomeVC/RepositoriesModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoriesModel+CoreDataClass.swift"; path = "/Users/nrmeentomoum/Desktop/NagwaTask/NagwaTask/🔨Scenes/HomeVC/RepositoriesModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -240,6 +244,8 @@
 				684C8BC021D6042D00D8A4C2 /* HomeModels.swift */,
 				684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */,
 				684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */,
+				6816F72E21D7F84D00D295D3 /* LoadingTableViewCell.swift */,
+				6816F72F21D7F84D00D295D3 /* LoadingTableViewCell.xib */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				684C8B8A21D6016D00D8A4C2 /* LaunchScreen.storyboard in Resources */,
+				6816F73121D7F84D00D295D3 /* LoadingTableViewCell.xib in Resources */,
 				684C8B8721D6016D00D8A4C2 /* Assets.xcassets in Resources */,
 				684C8B8221D6016C00D8A4C2 /* Main.storyboard in Resources */,
 				68DD773A21D652C500DF3B12 /* RepositoryTableViewCell.xib in Resources */,
@@ -530,6 +537,7 @@
 				684C8BC721D6042D00D8A4C2 /* HomeViewController.swift in Sources */,
 				684C8BC421D6042D00D8A4C2 /* HomeWorker.swift in Sources */,
 				6834325821D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift in Sources */,
+				6816F73021D7F84D00D295D3 /* LoadingTableViewCell.swift in Sources */,
 				684C8BB921D602D600D8A4C2 /* Loader.swift in Sources */,
 				6834322D21D7633F001491B9 /* HomeWorkerCoreData.swift in Sources */,
 				684C8B8521D6016C00D8A4C2 /* NagwaTask.xcdatamodeld in Sources */,

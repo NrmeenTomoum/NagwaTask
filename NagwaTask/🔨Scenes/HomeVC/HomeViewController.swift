@@ -30,6 +30,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     var  indexOfPage = 1
     var viewLoader = loader ()
     @IBOutlet weak var tableView: UITableView!
+     @IBOutlet open var nextPageLoaderCell: UITableViewCell?
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -81,6 +82,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         tableView.rowHeight = UITableView.automaticDimension
         tableView.rowHeight = Constants.ScreenSize.SCREEN_HEIGHT * 0.1
         tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier:"RepositoryTableViewCell" )
+        loadNextPageLoaderCell(nibName: "LoadingTableViewCell" , bundle: nil)
         getRepositories()
     }
     
@@ -125,6 +127,16 @@ class HomeViewController: UIViewController, HomeDisplayLogic
 }
 extension HomeViewController : UITableViewDelegate,UITableViewDataSource
 {
+    public func loadNextPageLoaderCell(nibName: String  ,bundle: Bundle? = Bundle.main) {
+        
+        if nextPageLoaderCell == nil {
+            let loaderCell = UINib(nibName: nibName, bundle: bundle)
+            tableView?.register(loaderCell, forCellReuseIdentifier: "LoadingTableViewCell")
+            nextPageLoaderCell =  tableView?.dequeueReusableCell(withIdentifier: "LoadingTableViewCell")
+        }
+    }
+    
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let contentOffset = scrollView.contentOffset.y
@@ -136,8 +148,13 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
         if let list = repositories
         {
+            if showNextPageLoaderCell(tableView: tableView, section: section) {
+                
+            return  list.count + 1
+            }
             return  list.count
         }
         else
@@ -147,6 +164,10 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if showNextPageLoaderCell(tableView: tableView, section: indexPath.section, row: indexPath.row), let nextPageLoaderCell = nextPageLoaderCell {
+            
+            return nextPageLoaderCell
+        }
         let cindex = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
         
@@ -156,12 +177,38 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+   
+        
         return UITableView.automaticDimension
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.ScreenSize.SCREEN_HEIGHT * 0.1
+    }
+    
+    open func showNextPageLoaderCell (tableView: UITableView? = nil, section: Int? = nil, row: Int? = nil) -> Bool {
+        
+        if nextPageLoaderCell != nil, !isLoadingMore {
+            
+            if let tableView = tableView, let section = section {
+                // check if last section
+                if self.tableView.numberOfSections != section + 1 {
+                    return false
+                }
+                
+                if let row = row {
+                    // check if last row
+                    if self.tableView(tableView, numberOfRowsInSection: section) != row + 1 {
+                        return false
+                    }
+                }
+            }
+            
+            return true
+        }
+        
+        return false
     }
     
 }

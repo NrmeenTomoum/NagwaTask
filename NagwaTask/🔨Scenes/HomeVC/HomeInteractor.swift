@@ -24,11 +24,26 @@ protocol HomeDataStore
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore
 {
+    let network = NetworkManager.sharedInstance
     var presenter: HomePresentationLogic?
     var worker: HomeWorker?
     //var name: String = ""
     init() {
-        worker = HomeWorker(repository: HomeWorkerAPI())
+        if network.reachability.connection == .wifi
+        {
+             self.worker = HomeWorker(repository: HomeWorkerAPI())
+        }
+        else
+        {
+            self.worker = HomeWorker(repository: HomeWorkerCoreData())
+        }
+        network.reachability.whenUnreachable = { reachability in
+            self.worker = HomeWorker(repository: HomeWorkerCoreData())
+        }
+        network.reachability.whenReachable = { reachability in
+          self.worker = HomeWorker(repository: HomeWorkerAPI())
+        }
+      
     }
     // MARK: Do something
     func getRepositories(request: Home.Repository.Request)
