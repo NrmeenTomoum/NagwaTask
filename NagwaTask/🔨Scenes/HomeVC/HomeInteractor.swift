@@ -14,7 +14,7 @@ import UIKit
 
 protocol HomeBusinessLogic
 {
-    func getRepositories(request: Home.Repository.Request)
+    func getRepositories(request: Home.Repository.Request, fromAPIOrCD : Bool)
 }
 
 protocol HomeDataStore
@@ -29,30 +29,30 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore
     var worker: HomeWorker?
     //var name: String = ""
     init() {
-        if network.reachability.connection == .wifi
+     
+        //        network.reachability.whenUnreachable = { reachability in
+        //            self.worker = HomeWorker(repository: HomeWorkerCoreData())
+        //        }
+        //        network.reachability.whenReachable = { reachability in
+        //          self.worker = HomeWorker(repository: HomeWorkerAPI())
+        //        }
+        //
+    }
+    // MARK: Do something
+    func getRepositories(request: Home.Repository.Request, fromAPIOrCD : Bool)
+    {
+        if fromAPIOrCD == true
         {
-             self.worker = HomeWorker(repository: HomeWorkerAPI())
+            self.worker = HomeWorker(repository: HomeWorkerAPI())
         }
         else
         {
             self.worker = HomeWorker(repository: HomeWorkerCoreData())
         }
-        network.reachability.whenUnreachable = { reachability in
-            self.worker = HomeWorker(repository: HomeWorkerCoreData())
-        }
-        network.reachability.whenReachable = { reachability in
-          self.worker = HomeWorker(repository: HomeWorkerAPI())
-        }
-      
-    }
-    // MARK: Do something
-    func getRepositories(request: Home.Repository.Request)
-    {
-        
-        self.presenter?.presentLoader()
+        //        self.presenter?.presentLoader()
         
         worker?.getRepositories( request : request , completionHandler: { (result, errorMessage, serverError) in
-            self.presenter?.presentStopLoader()
+            //   self.presenter?.presentStopLoader()
             if let response = result
             {
                 self.presenter?.presentListOfRepositories(response: response)

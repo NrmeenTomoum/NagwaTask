@@ -10,6 +10,10 @@
 		24BE036ECDD9D086940E1C16 /* Pods_NagwaTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF27450A2AAE542E3061D628 /* Pods_NagwaTaskTests.framework */; };
 		6816F73021D7F84D00D295D3 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816F72E21D7F84D00D295D3 /* LoadingTableViewCell.swift */; };
 		6816F73121D7F84D00D295D3 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6816F72F21D7F84D00D295D3 /* LoadingTableViewCell.xib */; };
+		6816F73621D8149300D295D3 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816F73221D8149300D295D3 /* HomeViewControllerTests.swift */; };
+		6816F73721D8149300D295D3 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816F73321D8149300D295D3 /* HomeInteractorTests.swift */; };
+		6816F73821D8149300D295D3 /* HomeWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816F73421D8149300D295D3 /* HomeWorkerTests.swift */; };
+		6816F73921D8149300D295D3 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816F73521D8149300D295D3 /* HomePresenterTests.swift */; };
 		6834322D21D7633F001491B9 /* HomeWorkerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */; };
 		6834325821D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */; };
 		6834325921D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */; };
@@ -63,6 +67,10 @@
 		633FFC90D7F982AE089BC403 /* Pods-NagwaTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagwaTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagwaTask/Pods-NagwaTask.debug.xcconfig"; sourceTree = "<group>"; };
 		6816F72E21D7F84D00D295D3 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		6816F72F21D7F84D00D295D3 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		6816F73221D8149300D295D3 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		6816F73321D8149300D295D3 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		6816F73421D8149300D295D3 /* HomeWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerTests.swift; sourceTree = "<group>"; };
+		6816F73521D8149300D295D3 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerCoreData.swift; sourceTree = "<group>"; };
 		6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoriesModel+CoreDataProperties.swift"; path = "/Users/nrmeentomoum/Desktop/NagwaTask/NagwaTask/🔨Scenes/HomeVC/RepositoriesModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoriesModel+CoreDataClass.swift"; path = "/Users/nrmeentomoum/Desktop/NagwaTask/NagwaTask/🔨Scenes/HomeVC/RepositoriesModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -201,6 +209,10 @@
 			children = (
 				684C8B9421D6016D00D8A4C2 /* NagwaTaskTests.swift */,
 				684C8B9621D6016D00D8A4C2 /* Info.plist */,
+				6816F73221D8149300D295D3 /* HomeViewControllerTests.swift */,
+				6816F73321D8149300D295D3 /* HomeInteractorTests.swift */,
+				6816F73421D8149300D295D3 /* HomeWorkerTests.swift */,
+				6816F73521D8149300D295D3 /* HomePresenterTests.swift */,
 			);
 			path = NagwaTaskTests;
 			sourceTree = "<group>";
@@ -554,7 +566,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6816F73721D8149300D295D3 /* HomeInteractorTests.swift in Sources */,
 				684C8B9521D6016D00D8A4C2 /* NagwaTaskTests.swift in Sources */,
+				6816F73821D8149300D295D3 /* HomeWorkerTests.swift in Sources */,
+				6816F73921D8149300D295D3 /* HomePresenterTests.swift in Sources */,
+				6816F73621D8149300D295D3 /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

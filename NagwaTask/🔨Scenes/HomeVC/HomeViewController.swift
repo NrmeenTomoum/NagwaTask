@@ -27,6 +27,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     var repositories : [Home.Repository.ViewModel]?
     var isLoadingMore = false
+    open var isFetchingData = false
+    var fromAPIOrCD = true
     var  indexOfPage = 1
     var viewLoader = loader ()
     @IBOutlet weak var tableView: UITableView!
@@ -90,12 +92,13 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     func getRepositories()
     {
         let request = Home.Repository.Request(page: self.indexOfPage ,size : 15)
-        interactor?.getRepositories(request: request)
+        interactor?.getRepositories(request: request, fromAPIOrCD: fromAPIOrCD)
     }
     //@IBOutlet weak var nameTextField: UITextField!
     
     func displayListOfRepositories(viewModel: [Home.Repository.ViewModel])
     {
+        isFetchingData = false
         //  isLoadingMore = viewModel.isL
         if viewModel.count < 15
         {
@@ -109,10 +112,12 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         {
             repositories = viewModel
         }
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     func createAlert(title: String, subTitle: String) {
-        CAlert.createAlert(title: title, subTitle: subTitle,vc: self)
+        CAlert.createAlert(title: title, subTitle: subTitle,vc: self,buttons: ["Show locally stored data."])
     }
     
     func displayIndecator()
@@ -138,10 +143,12 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let contentOffset = scrollView.contentOffset.y
         if !isLoadingMore && (maximumOffset - contentOffset) <= (Constants.ScreenSize.SCREEN_HEIGHT * 0.1 * 3)
         {
+            isFetchingData = true
             self.indexOfPage = indexOfPage + 1
              getRepositories()
         }
@@ -188,7 +195,7 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     
     open func showNextPageLoaderCell (tableView: UITableView? = nil, section: Int? = nil, row: Int? = nil) -> Bool {
-        
+
         if nextPageLoaderCell != nil, !isLoadingMore {
             
             if let tableView = tableView, let section = section {
@@ -217,4 +224,14 @@ extension HomeViewController: FCAlertViewDelegate
     func fcAlertDoneButtonClicked(_ alertView: FCAlertView!) {
     }
     
+    func fcAlertView(_ alertView: FCAlertView!, clickedButtonIndex index: Int, buttonTitle title: String!) {
+        
+        if title == "Show locally stored data."
+        {
+            repositories = []
+            fromAPIOrCD = false
+            self.getRepositories()
+        }
+        
+    }
 }

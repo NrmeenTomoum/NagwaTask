@@ -18,9 +18,9 @@ class GenericRequest
      class    func genericRequestMappable<T: Mappable>(httpMethod : HTTPMethod ,urlParameters : [String : AnyObject]?,URL : String,isWithToken :Bool,completionHandler: @escaping([T]?,errorMessage?,errorMessage? )-> Void)
     {
         self.mainRequest(httpMethod: httpMethod, urlParameters: urlParameters, URL: URL, isWithToken: isWithToken){ (result:[T]?, error:errorMessage?) in
-            if let response = result
+            if (result?.count)! > 0
             {
-                    completionHandler(response,nil,nil)
+                    completionHandler(result!,nil,nil)
                }
             else {
                 completionHandler(nil,nil,error)

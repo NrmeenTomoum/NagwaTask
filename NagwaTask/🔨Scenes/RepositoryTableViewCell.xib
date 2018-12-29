@@ -46,6 +46,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="reposDescription" destination="ip7-yg-LAV" id="tM2-Lp-2g1"/>
                 <outlet property="reposName" destination="sL6-qY-9dC" id="XpS-pc-RzJ"/>
