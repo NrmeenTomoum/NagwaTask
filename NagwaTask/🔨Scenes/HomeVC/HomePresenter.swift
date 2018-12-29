@@ -22,20 +22,20 @@ protocol HomePresentationLogic
 
 class HomePresenter: HomePresentationLogic
 {
-
-  weak var viewController: HomeDisplayLogic?
-  
-  // MARK: Do something
+    
+    weak var viewController: HomeDisplayLogic?
+    
+    // MARK: Do something
     func presentListOfRepositories(response: [Home.Repository.Response])
     {
         var list = [Home.Repository.ViewModel]()
-            for item in response
-            {
-                
-                let viewModel = Home.Repository.ViewModel(id: item.id ?? 0, name: item.name ?? "", description: item.description ?? "" , isLoadingMore: true)
-                
-                list.append(viewModel)
-            }
+        for item in response
+        {
+            
+            let viewModel = Home.Repository.ViewModel(id: item.id ?? 0, name: item.name ?? "", description: item.description ?? "" , isLoadingMore: true)
+            
+            list.append(viewModel)
+        }
         viewController?.displayListOfRepositories(viewModel: list)
     }
     func presentAlertMessage(message : String)

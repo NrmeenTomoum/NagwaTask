@@ -80,7 +80,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.rowHeight = Constants.ScreenSize.SCREEN_HEIGHT * 0.1
-        tableView.register(UINib(nibName: "ServerTableViewCell", bundle: nil), forCellReuseIdentifier:"ServerTableViewCell" )
+        tableView.register(UINib(nibName: "RepositoryTableViewCell", bundle: nil), forCellReuseIdentifier:"RepositoryTableViewCell" )
         getRepositories()
     }
     
@@ -95,6 +95,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     func displayListOfRepositories(viewModel: [Home.Repository.ViewModel])
     {
         //  isLoadingMore = viewModel.isL
+        if viewModel.count < 15
+        {
+          isLoadingMore = true
+        }
         if repositories != nil
         {
             repositories?.append(contentsOf: viewModel)
@@ -103,10 +107,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         {
             repositories = viewModel
         }
-        //        if viewModel.count > 0
-        //        {
-        //            isLoadingMore = viewModel[0].isLoadingMore
-        //        }
         tableView.reloadData()
     }
     func createAlert(title: String, subTitle: String) {
@@ -125,6 +125,16 @@ class HomeViewController: UIViewController, HomeDisplayLogic
 }
 extension HomeViewController : UITableViewDelegate,UITableViewDataSource
 {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let contentOffset = scrollView.contentOffset.y
+        if !isLoadingMore && (maximumOffset - contentOffset) <= (Constants.ScreenSize.SCREEN_HEIGHT * 0.1 * 3)
+        {
+            self.indexOfPage = indexOfPage + 1
+             getRepositories()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let list = repositories
         {
@@ -144,6 +154,16 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
         
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
+        
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.ScreenSize.SCREEN_HEIGHT * 0.1
+    }
+    
 }
 extension HomeViewController: FCAlertViewDelegate
 {
