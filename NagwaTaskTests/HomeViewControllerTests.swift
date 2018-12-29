@@ -84,13 +84,13 @@ class HomeViewControllerTests: XCTestCase
   func testDisplaySomething()
   {
     // Given
-//    let viewModel = Home.Repository.ViewModel(id: <#Int#>, name: <#String#>)
+    let viewModel = Home.Repository.ViewModel(id: 1, name: "test1", description: "desc", isLoadingMore: true)
     
     // When
     loadView()
-    sut.displaySomething(viewModel: viewModel)
+    sut.displayListOfRepositories(viewModel: [viewModel])
     
     // Then
-    //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
+  //  XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
   }
 }

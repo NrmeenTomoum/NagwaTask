@@ -43,28 +43,27 @@ class HomeInteractorTests: XCTestCase
   
   class HomePresentationLogicSpy: HomePresentationLogic
   {
+    var presentAlertMessageflag = false
+    var presentStopLoaderflag = false
+    var presentLoaderflag = false
+    var presentListOfRepositoriesflag = false
+    
     func presentStopLoader() {
-        <#code#>
+        presentStopLoaderflag = true
     }
     
     func presentLoader() {
-        <#code#>
+        presentLoaderflag = true
     }
     
     func presentAlertMessage(message: String) {
-        <#code#>
+        presentAlertMessageflag = true
     }
     
     func presentListOfRepositories(response: [Home.Repository.Response]) {
-        
+        presentListOfRepositoriesflag = true
     }
     
-    var presentSomethingCalled = false
-    
-    func presentSomething(response: Home.Repository.Response)
-    {
-      presentSomethingCalled = true
-    }
   }
   
   // MARK: Tests
@@ -74,12 +73,12 @@ class HomeInteractorTests: XCTestCase
     // Given
     let spy = HomePresentationLogicSpy()
     sut.presenter = spy
-    let request = Home.Repository.Request()
+//    let request = Home.Repository.Request()
     
     // When
-    sut.doSomething(request: request)
+    sut.getRepositories(request: Home.Repository.Request(page: 1, size: 15), fromAPIOrCD: true)
     
     // Then
-    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
+    XCTAssertTrue(spy.presentListOfRepositoriesflag, "doSomething(request:) should ask the presenter to format the result")
   }
 }

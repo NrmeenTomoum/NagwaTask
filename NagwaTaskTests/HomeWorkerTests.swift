@@ -36,7 +36,7 @@ class HomeWorkerTests: XCTestCase
   
   func setupHomeWorker()
   {
-    sut = HomeWorker(repository: nil)
+    sut = HomeWorker(repository: HomeWorkerAPI())
   }
   
   // MARK: Test doubles

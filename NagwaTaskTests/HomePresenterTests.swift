@@ -52,13 +52,14 @@ class HomePresenterTests: XCTestCase
     }
     
     func createAlert(title: String, subTitle: String) {
-        
+        displaySomethingCalled = true
     }
     
     func displayListOfRepositories(viewModel: [Home.Repository.ViewModel]) {
-        
+    
     }
     
+   
     var displaySomethingCalled = false
     
     func displaySomething(viewModel: Home.Repository.ViewModel)
@@ -68,16 +69,17 @@ class HomePresenterTests: XCTestCase
   }
   
   // MARK: Tests
-  
+ 
+   
   func testPresentSomething()
   {
     // Given
     let spy = HomeDisplayLogicSpy()
     sut.viewController = spy
-    let response = Home.Repository.Response()
+   // let response = Home.Repository.Response()
     
     // When
-    sut.presentSomething(response: response)
+    sut.presentAlertMessage(message: "ServerDown")
     
     // Then
     XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
