@@ -11,7 +11,11 @@
 //
 
 import UIKit
-class HomeWorker
+protocol RepositoryProtocol
+{
+  func getRepositories( request : Home.Repository.Request,  completionHandler: @escaping ([Home.Repository.Response]?,errorMessage?,errorMessage? ) -> Void)
+}
+class HomeWorker : RepositoryProtocol
 {
     func getRepositories( request : Home.Repository.Request,  completionHandler: @escaping ([Home.Repository.Response]?,errorMessage?,errorMessage? ) -> Void)
     {

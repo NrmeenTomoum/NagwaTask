@@ -30,10 +30,17 @@ enum Home
             var description : String
             var isLoadingMore : Bool
         }
+        
         class  Response : Mappable {
             var id : Int?
             var name : String?
             var description : String?
+            
+            init(id : Int , name : String , desc : String) {
+                self.id = id
+                self.name = name
+                self.description = desc
+            }
             required init?(map: Map){
                 
             }
