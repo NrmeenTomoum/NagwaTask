@@ -143,7 +143,8 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    
+    if fromAPIOrCD
+    {
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let contentOffset = scrollView.contentOffset.y
         if !isLoadingMore && (maximumOffset - contentOffset) <= (Constants.ScreenSize.SCREEN_HEIGHT * 0.1 * 3)
@@ -151,6 +152,7 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
             isFetchingData = true
             self.indexOfPage = indexOfPage + 1
              getRepositories()
+        }
         }
     }
     
@@ -196,7 +198,7 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     
     open func showNextPageLoaderCell (tableView: UITableView? = nil, section: Int? = nil, row: Int? = nil) -> Bool {
 
-        if nextPageLoaderCell != nil, !isLoadingMore {
+        if nextPageLoaderCell != nil, !isLoadingMore , fromAPIOrCD  {
             
             if let tableView = tableView, let section = section {
                 // check if last section

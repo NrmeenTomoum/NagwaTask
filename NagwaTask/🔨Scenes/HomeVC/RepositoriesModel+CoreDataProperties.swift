@@ -16,7 +16,7 @@ extension RepositoriesModel {
         return NSFetchRequest<RepositoriesModel>(entityName: "RepositoriesModel")
     }
 
-    @NSManaged public var id: Int16
+    @NSManaged public var id: Int64
     @NSManaged public var name: String?
     @NSManaged public var reposDesc: String?
 

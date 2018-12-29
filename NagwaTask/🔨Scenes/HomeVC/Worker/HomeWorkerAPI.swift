@@ -16,6 +16,16 @@ class HomeWorkerAPI : RepositoryProtocol
         
         GenericRequest.requestGetMappable(URL: URL) {
             (result:[Home.Repository.Response]?, errorMessage, serverError)  in
+            if let repositories =  result
+            {
+            for item in repositories
+     {
+        HomeWorkerCoreData().createRepository(repositoryToCreate: item, completionHandler: { (repos, errorMessage) in
+                print("Saved",repos?.name!)
+            })
+        
+            }
+            }
             completionHandler(result  , errorMessage ,serverError )
         }
     }

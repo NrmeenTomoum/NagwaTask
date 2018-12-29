@@ -13,12 +13,12 @@ import CoreData
 public class RepositoriesModel: NSManagedObject {
     func toRepository() -> Home.Repository.Response
     {
-        return Home.Repository.Response(id: Int(id), name: name!, desc: reposDesc!)
+        return Home.Repository.Response(id: Int(id), name: name!, desc: reposDesc ?? "")
     }
     func fromRepository(repository: Home.Repository.Response)
     {
-        id = Int16(repository.id!)
+        id = Int64(repository.id!)
         name = repository.name!
-        reposDesc = repository.description!
+        reposDesc = repository.description
     }
 }

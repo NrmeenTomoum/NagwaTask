@@ -39,7 +39,7 @@ class HomeWorkerCoreData: RepositoryProtocol
         /* The directory the application uses to store the Core Data store file.
          This code uses a file named "DataModel.sqlite" in the application's documents directory.
          */
-        let storeURL = docURL.appendingPathComponent("CleanStore.sqlite")
+        let storeURL = docURL.appendingPathComponent("NagwaTask.sqlite")
         do {
             try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
         } catch {
