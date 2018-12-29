@@ -60,7 +60,7 @@ class HomeWorkerCoreData: RepositoryProtocol
     }
     
     // MARK: - CRUD operations - Optional error
-   
+    
     func getRepositories(request: Home.Repository.Request, completionHandler: @escaping ([Home.Repository.Response]?, errorMessage?, errorMessage?) -> Void) {
         privateManagedObjectContext.perform {
             do {
@@ -80,13 +80,13 @@ class HomeWorkerCoreData: RepositoryProtocol
             do {
                 let managedRepository = NSEntityDescription.insertNewObject(forEntityName: "RepositoriesModel", into: self.privateManagedObjectContext) as! RepositoriesModel
                 var repository = repositoryToCreate
-                 managedRepository.fromRepository(repository: repository)
+                managedRepository.fromRepository(repository: repository)
                 try self.privateManagedObjectContext.save()
                 completionHandler(repository, nil)
             } catch {
                 completionHandler(nil, errorMessage(message:"Cannot create order with id \(String(describing: repositoryToCreate.id))"))
             }
         }
-}
-
+    }
+    
 }

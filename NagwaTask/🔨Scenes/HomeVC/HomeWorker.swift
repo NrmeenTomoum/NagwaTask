@@ -13,18 +13,23 @@
 import UIKit
 protocol RepositoryProtocol
 {
-  func getRepositories( request : Home.Repository.Request,  completionHandler: @escaping ([Home.Repository.Response]?,errorMessage?,errorMessage? ) -> Void)
+    func getRepositories( request : Home.Repository.Request,  completionHandler: @escaping ([Home.Repository.Response]?,errorMessage?,errorMessage? ) -> Void)
 }
-class HomeWorker : RepositoryProtocol
+class HomeWorker
 {
+    var repository: RepositoryProtocol
+    
+    init(repository: RepositoryProtocol)
+    {
+        self.repository = repository
+    }
+    
     func getRepositories( request : Home.Repository.Request,  completionHandler: @escaping ([Home.Repository.Response]?,errorMessage?,errorMessage? ) -> Void)
     {
-        var urlParameters : [String : AnyObject] = [:]
-        let URL = Constants.Server.Services.getRepositories + "page=\(request.page)&per_page=\(request.size)"
-        
-        GenericRequest.requestGetMappable(URL: URL) {
-            (result:[Home.Repository.Response]?, errorMessage, serverError)  in
+        repository.getRepositories(request: request) { (result, errorMessage, serverError) in
             completionHandler(result  , errorMessage ,serverError )
         }
+        
     }
 }
+

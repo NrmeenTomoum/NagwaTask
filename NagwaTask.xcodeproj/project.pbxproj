@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		24BE036ECDD9D086940E1C16 /* Pods_NagwaTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF27450A2AAE542E3061D628 /* Pods_NagwaTaskTests.framework */; };
 		6834322D21D7633F001491B9 /* HomeWorkerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */; };
-		6834323321D774EB001491B9 /* Repositiories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834323221D774EB001491B9 /* Repositiories.swift */; };
 		6834325821D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */; };
 		6834325921D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */; };
+		6834325B21D7940D001491B9 /* HomeWorkerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834325A21D7940D001491B9 /* HomeWorkerAPI.swift */; };
 		684C8B7D21D6016C00D8A4C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B7C21D6016C00D8A4C2 /* AppDelegate.swift */; };
 		684C8B8221D6016C00D8A4C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684C8B8021D6016C00D8A4C2 /* Main.storyboard */; };
 		684C8B8521D6016C00D8A4C2 /* NagwaTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 684C8B8321D6016C00D8A4C2 /* NagwaTask.xcdatamodeld */; };
@@ -60,9 +60,9 @@
 		4B2C2CF0211F001A667A4DE8 /* Pods_NagwaTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NagwaTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633FFC90D7F982AE089BC403 /* Pods-NagwaTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NagwaTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NagwaTask/Pods-NagwaTask.debug.xcconfig"; sourceTree = "<group>"; };
 		6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerCoreData.swift; sourceTree = "<group>"; };
-		6834323221D774EB001491B9 /* Repositiories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositiories.swift; sourceTree = "<group>"; };
 		6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoriesModel+CoreDataProperties.swift"; path = "/Users/nrmeentomoum/Desktop/NagwaTask/NagwaTask/🔨Scenes/HomeVC/RepositoriesModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoriesModel+CoreDataClass.swift"; path = "/Users/nrmeentomoum/Desktop/NagwaTask/NagwaTask/🔨Scenes/HomeVC/RepositoriesModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		6834325A21D7940D001491B9 /* HomeWorkerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerAPI.swift; sourceTree = "<group>"; };
 		684C8B7921D6016C00D8A4C2 /* NagwaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NagwaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		684C8B7C21D6016C00D8A4C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		684C8B8121D6016C00D8A4C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,6 +136,24 @@
 				CB5D45D21FE199894E430A89 /* Pods-NagwaTaskUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6834325C21D7943D001491B9 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */,
+				6834325A21D7940D001491B9 /* HomeWorkerAPI.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		6834325D21D7945D001491B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */,
+				6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		684C8B7021D6016C00D8A4C2 = {
@@ -214,16 +232,14 @@
 		684C8BAF21D6028200D8A4C2 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				6834325721D7872A001491B9 /* RepositoriesModel+CoreDataClass.swift */,
-				6834325621D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift */,
+				6834325D21D7945D001491B9 /* Model */,
+				6834325C21D7943D001491B9 /* Worker */,
 				684C8BBD21D6042D00D8A4C2 /* HomePresenter.swift */,
 				684C8BBE21D6042D00D8A4C2 /* HomeWorker.swift */,
 				684C8BBF21D6042D00D8A4C2 /* HomeRouter.swift */,
 				684C8BC021D6042D00D8A4C2 /* HomeModels.swift */,
 				684C8BC121D6042D00D8A4C2 /* HomeViewController.swift */,
 				684C8BC221D6042D00D8A4C2 /* HomeInteractor.swift */,
-				6834322C21D7633F001491B9 /* HomeWorkerCoreData.swift */,
-				6834323221D774EB001491B9 /* Repositiories.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -512,13 +528,13 @@
 				684C8B7D21D6016C00D8A4C2 /* AppDelegate.swift in Sources */,
 				684C8BC321D6042D00D8A4C2 /* HomePresenter.swift in Sources */,
 				684C8BC721D6042D00D8A4C2 /* HomeViewController.swift in Sources */,
-				6834323321D774EB001491B9 /* Repositiories.swift in Sources */,
 				684C8BC421D6042D00D8A4C2 /* HomeWorker.swift in Sources */,
 				6834325821D7872A001491B9 /* RepositoriesModel+CoreDataProperties.swift in Sources */,
 				684C8BB921D602D600D8A4C2 /* Loader.swift in Sources */,
 				6834322D21D7633F001491B9 /* HomeWorkerCoreData.swift in Sources */,
 				684C8B8521D6016C00D8A4C2 /* NagwaTask.xcdatamodeld in Sources */,
 				684C8BBA21D602D600D8A4C2 /* Constants.swift in Sources */,
+				6834325B21D7940D001491B9 /* HomeWorkerAPI.swift in Sources */,
 				684C8BB721D602D600D8A4C2 /* GenericModel.swift in Sources */,
 				684C8BB821D602D600D8A4C2 /* GWSManger.swift in Sources */,
 				684C8BBB21D602D600D8A4C2 /* CustomAlert.swift in Sources */,

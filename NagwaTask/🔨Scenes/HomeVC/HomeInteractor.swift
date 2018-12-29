@@ -28,7 +28,7 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore
     var worker: HomeWorker?
     //var name: String = ""
     init() {
-        worker = HomeWorker()
+        worker = HomeWorker(repository: HomeWorkerAPI())
     }
     // MARK: Do something
     func getRepositories(request: Home.Repository.Request)
